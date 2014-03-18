@@ -29,6 +29,6 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2 {
     }
 
     public void testFail() throws Exception {
-        assertNotNull( null);
+        assertEquals(((MainActivity)solo.getCurrentActivity()).getUrl(), null);
     }
 }
