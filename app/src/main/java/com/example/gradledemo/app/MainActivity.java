@@ -45,6 +45,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
      */
     ViewPager mViewPager;
     private RestTemplate restTemplate;
+
+
+
     private String url;
     private RestService restService;
 
@@ -56,7 +59,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        restService.setupRestClient();
+        restService.setupRestClient(this);
         try {
             new HttpRequestTask().execute().get();
         } catch (InterruptedException e) {
@@ -244,6 +247,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         }
     }
 
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 
 }
